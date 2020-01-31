@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo</title>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="header__title">ToDo App</h1>
+        <p class="header__subtitle">Do something today that your future self will thank you for</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="widget">
+        <div class="add-todo">
+          <input type="text" class="add-todo__input" id="new_todo" placeholder="Write your ToDo here">
+          <input type="date" class="add-todo__date" id="deadline">
+          <button class="button" id="button__add">Add ToDo</button>
+        </div>
+        <div class="filters">
+          <select id="filters__deadline">
+            <option>Any deadline</option>
+            <option>Tomorrow</option>
+            <option>Next week</option>
+          </select>
+          <select id="filters__completion">
+              <option>All tasks</option>
+              <option>Only complited</option>
+              <option>Only uncomplited</option>
+            </select>
+        </div>
+        <div class="todos-wrapper">
+          <ul id="todos"></ul>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

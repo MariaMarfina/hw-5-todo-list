@@ -1,0 +1,177 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #333745;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+select {
+  background-color: #333745;
+  color: #757575;
+  border: none;
+  flex-grow: 1;
+  padding: 1.2rem;
+  border-bottom: 0.3rem solid #1d2028;
+  margin-bottom: 1.2rem;
+}
+
+input, select, button {
+  outline-color: #8357c5;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+}
+
+#filters__deadline {
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+}
+
+#filters__completion {
+  margin-right: 1.6rem;
+}
+
+.add-todo {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem;
+}
+
+.add-todo__input {
+  flex-direction: row;
+  background: #333745;
+  border: none;
+  color: #757575;
+  border-bottom: 0.3rem solid #1d2028;
+  flex-grow: 1;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.add-todo__date {
+  flex-direction: row;
+  background: #333745;
+  border: none;
+  border-bottom: 0.3rem solid #1d2028;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+/* styles for customizing datepicker*/
+::-webkit-datetime-edit-text {
+  padding: 0 0.3em; 
+}
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-year-field,
+::-webkit-calendar-picker-indicator,
+::-webkit-datetime-edit-text { 
+  color: #757575; 
+}
+::-webkit-inner-spin-button { 
+  display: none; 
+}
+
+.button {
+  background-color: #8357c5;
+  border: none;
+  border-bottom: 0.3rem solid #693cad;
+  color: white;
+  font-weight: 500;
+  padding: 1.2rem;
+}
+
+.remove-todo {
+  background: none;
+  border: none;
+  color: #a5afd7;
+  padding: 0;
+  cursor: pointer;
+  width: 20%;
+}
+
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+
+.header {
+  background: #20222b;
+  color: white;
+  margin-bottom: 1.6rem;
+  padding: 1.6rem 0;
+}
+
+.header__title {
+  font-size: 3.2rem;
+  margin: 0;
+}
+
+.header__subtitle {
+  color: #a5afd7;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+@media (min-width: 45rem) {
+  .header {
+    margin-bottom: 4.8rem;
+  }
+}
+
+.todos-wrapper #todos {
+  padding-left: 0;
+}
+
+#todos li {
+  border-bottom: 1px solid #5c627b;
+  display: flex;
+  justify-content: space-between;
+  padding: 3.2rem 1.6rem;
+  color: white;
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 0;
+  word-break: break-all;
+}
+
+#todos .hidden {
+  display:none;
+}
+
+.completed .todo-text {
+  color: #5c627b;
+  text-decoration: line-through;
+}
+
+.todo-text {
+  width: 60%;
+  margin-right: 1.2rem;
+}
+
+.time {
+  width: 20%;
+}
+
+.widget {
+  background: #464b5e;
+  margin-bottom: 4.8rem;
+}
