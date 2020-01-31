@@ -15,13 +15,22 @@ var todoApp = (function() {
       return;
     } 
 
+    addTodoToDOM();
+
+    addTodoToLocalStorage();
+
+    clearInputFields();
+  }
+
+  function addTodoToDOM() {
+    var input = document.getElementById('new_todo');
     var li = document.createElement('li');
     var textEl = document.createElement('span');
     var textVal = document.createTextNode(input.value);
     textEl.className = "todo-text";
     textEl.appendChild(textVal);
     li.appendChild(textEl);
-    li.setAttribute('class', 'todo');
+    li.setAttribute('class', 'not-completed');
     document.getElementById('todos').appendChild(li);
 
     var removeEl = document.createElement('span');
@@ -35,11 +44,7 @@ var todoApp = (function() {
     time_span.className = "time";
     time_span.appendChild(time);
     li.appendChild(time_span);
-    li.classList.toggle('with_deadline');
-
-    addTodoToLocalStorage();
-
-    clearInputFields();
+    li.classList.add('todo-item');
   }
 
   function addTodoToLocalStorage() {
@@ -53,8 +58,7 @@ var todoApp = (function() {
 
   function deadlineFilter() {
     var filter = document.getElementById('filters__deadline');
-    var deadlineList = document.getElementsByClassName('with_deadline');
-    hideElems('without_daedline')
+    var deadlineList = document.getElementsByClassName('todo-item');
 
     var today = new Date();
     var tomorrow = new Date();
@@ -87,7 +91,6 @@ var todoApp = (function() {
           : deadlineList[i].classList.add('hidden');
       } else {
         deadlineList[i].classList.remove('hidden');
-        showElems('without_daedline');
       }
     }
   }
@@ -98,14 +101,14 @@ var todoApp = (function() {
     switch (filter.value) {
       case 'Only uncomplited':
         hideElems('completed');
-        showElems('todo');
+        showElems('not-completed');
         break;
       case 'Only complited':
-        hideElems('todo');
+        hideElems('not-completed');
         showElems('completed');
         break;
       case 'All tasks':
-        showElems('todo');
+        showElems('not-completed');
         showElems('completed');
         break;
       default:
@@ -128,12 +131,12 @@ var todoApp = (function() {
   }
 
   function toggleTaskCompleted(task) {
-    if(task.target.tagName === "LI") {
-      task.target.classList.toggle('todo');
-        task.target.classList.toggle('completed');
+    if(task.target.tagName === 'LI') {
+      task.target.classList.toggle('not-completed');
+      task.target.classList.toggle('completed');
     } else if(task.target.classList.contains('remove-todo')) {
-        var div = task.target.parentNode;
-        div.remove();
+      var div = task.target.parentNode;
+      div.remove();
     }
     window.localStorage.setItem('todos', document.getElementById('todos').innerHTML);
   }
